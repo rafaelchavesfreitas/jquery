@@ -888,8 +888,7 @@ Sizzle.attr = function( elem, name ) {
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
 			undefined;
-
-	return val !== undefined ?
+	return (typeof elem.getAttribute !== "function") ? null : val !== undefined ?
 		val :
 		support.attributes || !documentIsHTML ?
 			elem.getAttribute( name ) :
